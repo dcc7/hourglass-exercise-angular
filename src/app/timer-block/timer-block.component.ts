@@ -7,12 +7,14 @@ import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, Rendere
 })
 export class TimerBlockComponent implements OnInit, AfterViewInit, OnChanges {
 
-  @Input() flip: boolean;
-  @Input() count: number;
-  @Input() originalNum: number;
+  @Input() flip: boolean; //true will rotate triangle.
+  @Input() count: number; //count passed from the parent.
+  @Input() originalNum: number; //used for percentage calculation.
 
+  //top triangle for 180 deg rotation.
   @ViewChild('triangle') triangle?: ElementRef;
 
+  //obtaining DOM elements.
   @ViewChild('boxOne') boxOne?: ElementRef;
   @ViewChild('boxTwo') boxTwo?: ElementRef;
   @ViewChild('boxThree') boxThree?: ElementRef;
@@ -29,7 +31,7 @@ export class TimerBlockComponent implements OnInit, AfterViewInit, OnChanges {
 
 
   constructor(
-    private renderer: Renderer2,
+    private renderer: Renderer2, //user to manipulate dom elements, instead of manipulating directly.
   ) {}
 
 
@@ -37,13 +39,14 @@ export class TimerBlockComponent implements OnInit, AfterViewInit, OnChanges {
 
 
   ngAfterViewInit(): void {
+    //adding css to element for 180 deg rotation.
     if (this.flip){
       this.renderer.addClass(this.triangle.nativeElement, 'flip');
     }
-
+    //to run certain functions only after the view has initialised.
     this.viewInitialised = true;
 
-    //remove boxes from the start (for the bottom triangle).
+    //remove boxes from the start (for the bottom triangle) from beggining.
     if (!this.flip){
       this.renderer.removeClass(this.boxOne.nativeElement,"box-1");
       this.renderer.removeClass(this.boxTwo.nativeElement,"box-2");
@@ -58,9 +61,9 @@ export class TimerBlockComponent implements OnInit, AfterViewInit, OnChanges {
     }
   }
 
-  //runs every time something passed down from parent to child.
+  //runs every time information is passed down from parent to child.
   ngOnChanges(changes: SimpleChanges): void {
-    //percentage calculation
+    //percentage calculation: using time elapsed.
     this.percentageDone = (1 - this.count / this.originalNum) * 100;
 
     // For the triangle that is flipped
@@ -132,7 +135,5 @@ export class TimerBlockComponent implements OnInit, AfterViewInit, OnChanges {
         this.renderer.addClass(this.boxOne.nativeElement,"box-1");
       }
     }
-
     }
-
 }
