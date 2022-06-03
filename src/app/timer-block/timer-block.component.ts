@@ -48,29 +48,30 @@ export class TimerBlockComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   //runs every time information is passed down from parent to child.
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     //percentage calculation: using time elapsed.
-    this.percentageDone = (1 - this.count / this.originalNum) * 100;
+    this.percentageDone = (1 - (this.count / this.originalNum)) * 100;
 
     // For the triangle that is flipped
     if (this.viewInitialised && this.flip){
       for (let i = this.boxes.length - 1; i >= 0; i--) {
         for (let j = 0; j <=10; j++){
-          if (this.percentageDone >= (j*10) && this.percentageDone < (j*10+10) && i === this.boxes.length - j) {
-           this.renderer.removeClass(this.boxes[i],`box-${i + 1}`);
+          if (this.percentageDone >= (j*10) && this.percentageDone < (j*10+10.001) && i === this.boxes.length - j) {
+            this.renderer.removeClass(this.boxes[i],`box-${i + 1}`);
           }
         }
       }
     }
     // For the triangle that is not flipped.
     if (this.viewInitialised && !this.flip){
-      for (let i = this.boxes.length - 1; i >= 0; i--) {
-        for (let j = 0; j <=10; j++){
-          if (this.percentageDone >= (j*10) && this.percentageDone < (j*10+10) && i === this.boxes.length - j) {
-          this.renderer.addClass(this.boxes[i],`box-${i + 1}`);
-          };
-        };
-      };
-    };
+      for (let i = this.boxes.length - 1; i > -1; i--) {
+        for (let j = 0; j < 11; j++){
+          if (this.percentageDone >= (j*10) && this.percentageDone < (j*10+10.001) && i === this.boxes.length - j) {
+            this.renderer.addClass(this.boxes[i],`box-${i + 1}`);
+          }
+        }
+      }
+    }
   };
+
 }
