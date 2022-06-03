@@ -2,7 +2,7 @@
     --timer-block-padding: 10px;
     --timer-percentage: 95%;
     --timer-block-size: 150px;
-    --sand-color: gold;
+    --sand-color: #FFD300;
     --border-radius: 15px;
 }
 
@@ -13,7 +13,6 @@
     background: navy;
     position: relative;
     border-radius: 15px;
-    z-index: 100;
 }
 
 .timerTriangle {
@@ -21,27 +20,24 @@
     height: 0;
     border-style: solid;
     border-width: 0 calc(var(--timer-block-size) / 2) var(--timer-block-size) calc(var(--timer-block-size) / 2);
-    border-color: transparent transparent white transparent;
+    border-color: transparent transparent aliceblue transparent;
+    overflow: hidden;
 }
 
 #emptyTriangle {
     opacity: 0.3;
     position: absolute;
+    overflow: hidden;
 }
 
 #timerPercentageWrapper {
     position: absolute;
     height: var(--timer-percentage);
     overflow: hidden;
-    z-index: 10;
 }
 
 .flip {
     transform: rotate(180deg);
-}
-
-#boxParent1 {
-    z-index: 100;
 }
 
 /* Boxes */
