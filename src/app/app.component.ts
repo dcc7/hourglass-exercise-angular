@@ -7,21 +7,19 @@ import { environment } from '../environments/environment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-setTimeSeconds: number = environment.totalTime; //obtaining seconds from environment file.
-timeSet: number = this.setTimeSeconds; //information passed down to child components.
-originalTime: number = this.setTimeSeconds; //total time for percentage calculation (passed to children).
+  setTimeSeconds: number = environment.totalTime; //obtaining seconds from environment file.
+  timeSet: number = this.setTimeSeconds; //information passed down to child components.
+  originalTime: number = this.setTimeSeconds; //total time for percentage calculation (passed to children).
 
+  ngOnInit(): void {}
 
-ngOnInit(): void {}
-
-countDown() {
-    const counter = setInterval(() => {
-      if (this.timeSet > 0){
-        this.timeSet--;
-      } else {
-        clearInterval(counter); //stops setInterval when counter reaches 0.
-      }
-    }, 1000)
-}
-  
+  countDown() {
+      const counter = setInterval(() => {
+        if (this.timeSet > 0){
+          this.timeSet--;
+        } else {
+          clearInterval(counter); //stops setInterval when counter reaches 0.
+        }
+      }, 1000)
+  }
 }

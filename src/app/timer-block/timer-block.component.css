@@ -2,7 +2,7 @@
     --timer-block-padding: 10px;
     --timer-percentage: 95%;
     --timer-block-size: 150px;
-    --sand-color: Gold;
+    --sand-color: gold;
     --border-radius: 15px;
 }
 
@@ -13,6 +13,7 @@
     background: navy;
     position: relative;
     border-radius: 15px;
+    z-index: 100;
 }
 
 .timerTriangle {
@@ -32,13 +33,16 @@
     position: absolute;
     height: var(--timer-percentage);
     overflow: hidden;
+    z-index: 10;
 }
-
 
 .flip {
     transform: rotate(180deg);
 }
 
+#boxParent1 {
+    z-index: 100;
+}
 
 /* Boxes */
 .box-1 {
@@ -50,6 +54,7 @@
     height: 20px;
     background-color: var(--sand-color);
     border-radius: var(--border-radius);
+    z-index: 1;
 }
 
 .box-2 {

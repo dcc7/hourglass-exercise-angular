@@ -1,19 +1,16 @@
-<h1>The Hour Glass</h1>
-<br>
-<!-- top block -->
-<div class="timer-container">
-  <app-timer-block [flip]="true" [count]="timeSet" [originalNum]="originalTime">
-  </app-timer-block>
-  
-  <!-- bottom block -->
-  <app-timer-block [flip]="false" [count]="timeSet" [originalNum]="originalTime">
-  </app-timer-block>
+<div class="app-container">
+  <h1>The Hour Glass</h1>
+  <br>
+  <div class="timer-container">
+    <!-- top block -->
+    <app-timer-block [flip]="true" [count]="timeSet" [originalNum]="originalTime">
+    </app-timer-block>
+    <!-- bottom block -->
+    <app-timer-block [flip]="false" [count]="timeSet" [originalNum]="originalTime">
+    </app-timer-block>
+  </div>
+  <br>
+  <h2 class="time">{{ timeSet }} Seconds</h2>
+  <br>
+  <button class="btn btn-primary" (click)="countDown()">Start Countdown</button>
 </div>
-
-<br>
-
-<h2 class="time">{{ timeSet }} Seconds</h2>
-
-<br>
-
-<button class="btn btn-primary" (click)="countDown()">Start Countdown</button>
