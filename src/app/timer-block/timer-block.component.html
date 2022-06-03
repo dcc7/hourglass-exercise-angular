@@ -1,15 +1,11 @@
 <div #triangle class="timerBlock">
     <div class="timerTriangle" id="emptyTriangle">
     </div>
-
     <div id="timerPercentageWrapper">
         <div id="boxParent" class="timerTriangle">
-            
             <div #box *ngFor="let element of ' '.repeat(10).split(''), let i = index" id="box-{{i+1}}" class="box-{{i+1}}"></div>
-
         </div>
         <div id="boxParent1" class="timerTriangle">
         </div>
     </div>
-
 </div>
