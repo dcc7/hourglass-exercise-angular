@@ -60,6 +60,7 @@ export class TimerBlockComponent implements OnInit, AfterViewInit, OnChanges {
           if (this.percentageDone >= (j*10) && this.percentageDone < (j*10+10.001) && i === this.boxes.length - j) {
             this.renderer.removeClass(this.boxes[i],`box-${i + 1}`);
           } else if (this.percentageDone > 95){
+            //removes the last box to simulate faster moving sand.
             this.renderer.removeClass(this.boxes[0],'box-1');
           }
         }
