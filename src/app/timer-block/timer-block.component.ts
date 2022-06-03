@@ -42,7 +42,7 @@ export class TimerBlockComponent implements OnInit, AfterViewInit, OnChanges {
     if (!this.flip){
       //looping over array of html elements and removing classes.
       this.boxes.forEach((element, index) => {
-        this.renderer.removeClass(element, `box-${index + 1}`)
+        this.renderer.removeClass(element, `box-${index + 1}`);
       })
     }
   }
@@ -57,7 +57,7 @@ export class TimerBlockComponent implements OnInit, AfterViewInit, OnChanges {
       for (let i = this.boxes.length - 1; i >= 0; i--) {
         for (let j = 0; j <=10; j++){
           if (this.percentageDone >= (j*10) && this.percentageDone < (j*10+10) && i === this.boxes.length - j) {
-          this.renderer.removeClass(this.boxes[i],`box-${i + 1}`)
+           this.renderer.removeClass(this.boxes[i],`box-${i + 1}`);
           }
         }
       }
@@ -67,10 +67,10 @@ export class TimerBlockComponent implements OnInit, AfterViewInit, OnChanges {
       for (let i = this.boxes.length - 1; i >= 0; i--) {
         for (let j = 0; j <=10; j++){
           if (this.percentageDone >= (j*10) && this.percentageDone < (j*10+10) && i === this.boxes.length - j) {
-          this.renderer.addClass(this.boxes[i],`box-${i + 1}`)
-          }
-        }
-      }
-    }
-  }
+          this.renderer.addClass(this.boxes[i],`box-${i + 1}`);
+          };
+        };
+      };
+    };
+  };
 }

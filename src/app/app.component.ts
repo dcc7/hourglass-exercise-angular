@@ -20,6 +20,6 @@ export class AppComponent implements OnInit {
         } else {
           clearInterval(counter); //stops setInterval when counter reaches 0.
         }
-      }, 1000)
-  }
-}
+      }, 1000);
+  };
+};
