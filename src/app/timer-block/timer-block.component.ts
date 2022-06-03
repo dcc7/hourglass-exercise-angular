@@ -27,6 +27,9 @@ export class TimerBlockComponent implements OnInit, AfterViewInit, OnChanges {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
+    //to run certain functions only after the view has initialised.
+    this.viewInitialised = true;
+
     const arr = this.boxParent.toArray();
     arr.forEach((element) => {
       //pushes each dom element into an array.
@@ -36,8 +39,6 @@ export class TimerBlockComponent implements OnInit, AfterViewInit, OnChanges {
     if (this.flip){
       this.renderer.addClass(this.triangle.nativeElement, 'flip');
     }
-    //to run certain functions only after the view has initialised.
-    this.viewInitialised = true;
     //remove boxes from the start (for the bottom triangle) from beginning.
     if (!this.flip){
       //looping over array of html elements and removing classes.
@@ -58,6 +59,8 @@ export class TimerBlockComponent implements OnInit, AfterViewInit, OnChanges {
         for (let j = 0; j <=10; j++){
           if (this.percentageDone >= (j*10) && this.percentageDone < (j*10+10.001) && i === this.boxes.length - j) {
             this.renderer.removeClass(this.boxes[i],`box-${i + 1}`);
+          } else if (this.percentageDone > 95){
+            this.renderer.removeClass(this.boxes[0],'box-1');
           }
         }
       }

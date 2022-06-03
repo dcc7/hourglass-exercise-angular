@@ -151,3 +151,14 @@
     background-color: var(--sand-color);
     border-radius: var(--border-radius);
 }
+
+.box-11 {
+    position: absolute;
+    left: 20px;
+    top: 121px;
+
+    width: 109px;
+    height: 20px;
+    background-color: var(--sand-color);
+    border-radius: var(--border-radius);
+}
